@@ -1,5 +1,17 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-
+<script src="http://ajax.cdnjs.com/ajax/libs/json2/20110223/json2.js"></script>
+<style>
+body {
+	font-family: arial;
+	font-size: 13px;
+}
+input {
+	font-family: arial;
+}
+#response {
+	color: #666;
+}
+</style>
 <script>
 $(function() {
 	$('#fetch').click(function() {
@@ -7,8 +19,8 @@ $(function() {
 		if(room_name == '') {
 			return alert('Enter a room');
 		} else {
-			$.getJSON("http://synchtube.com/api/1/room/" + room_name, function(response) {
-			    $('#response').text(response)
+			$.getJSON("http://synchtube.com/api/1/room/" + room_name + "?callback=?", function(response) {
+			    $('#response').text(JSON.stringify(response))
 			});				
 		}
 		return false;
@@ -16,13 +28,16 @@ $(function() {
 })
 
 </script>
+<h1>synchtube API example</h1>
+<h2>Request</h2>
 <pre>
-$.getJSON("http://synchtube.com/api/1/room/{ROOM_NAME}", function(response) {
+$.getJSON("http://synchtube.com/api/1/room/{ROOM_NAME}?callback=?", function(response) {
     console.log(response);
 });
 </pre>
-<label>Room Name:</label><input id="room">
+<label>Room Name:</label><input id="room" value="mrchess">
 <button id="fetch">Fetch Room Information</button> 
-
-<pre id="response">
-</pre>
+<h2>Response</h2>
+<p id="response">
+Response will appear here!
+</p>
