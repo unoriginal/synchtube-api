@@ -5,7 +5,7 @@ The synchtube simple API allows you retrieve information about rooms and returns
 
 ## Usage
 
-The format of the REST URL is <code> http://synchtube.com/api/{version}/{resource}</code>. The current version of the API is 1.
+The format of the REST URL is http://synchtube.com/api/{version}/{resource}. The current version of the API is 1.
 
 ## Resources
 We currently only have one resource.
