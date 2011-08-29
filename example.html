@@ -1,0 +1,28 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+
+<script>
+$(function() {
+	$('#fetch').click(function() {
+		var room_name = $.trim($('#room').val())
+		if(room_name == '') {
+			return alert('Enter a room');
+		} else {
+			$.getJSON("http://synchtube.com/api/1/room/" + room_name, function(response) {
+			    $('#response').text(response)
+			});				
+		}
+		return false;
+	});
+})
+
+</script>
+<pre>
+$.getJSON("http://synchtube.com/api/1/room/{ROOM_NAME}", function(response) {
+    console.log(response);
+});
+</pre>
+<label>Room Name:</label><input id="room">
+<button id="fetch">Fetch Room Information</button> 
+
+<pre id="response">
+</pre>
