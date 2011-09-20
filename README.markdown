@@ -34,6 +34,10 @@ This is a complete example using the API to gather information about the room "m
 JSON Response
 
     {
+        "room": {
+                "id":12,
+                "port":"8884"
+        },
         "user": {
                 "username":"mrchess",
                 "avatar": {
